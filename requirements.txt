@@ -11,3 +11,6 @@ pytz==2023.3.post1
 PyYAML==6.0.1
 sqlparse==0.4.4
 uritemplate==4.1.1
+prettyconf
+dj_database_url
+psycopg2
