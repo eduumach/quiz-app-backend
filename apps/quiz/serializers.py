@@ -5,15 +5,11 @@ from apps.quiz.models import Quiz, Category, Difficulty, Type
 
 class QuizQuestionSerializer(serializers.ModelSerializer):
     incorrect_answers = serializers.ListSerializer(child=serializers.CharField(source='incorrect_answer'))
-    length = serializers.SerializerMethodField()
-
-    def get_length(self, obj):
-        return obj.incorrect_answers.count() + 1
 
     class Meta:
         model = Quiz
         fields = ['category', 'type', 'difficulty',
-                  'question', 'correct_answer', 'incorrect_answers', 'length']
+                  'question', 'correct_answer', 'incorrect_answers']
 
 
 class CategorySerializer(serializers.ModelSerializer):
