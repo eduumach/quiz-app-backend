@@ -6,7 +6,7 @@ class Quiz(models.Model):
     type = models.ForeignKey('Type', on_delete=models.CASCADE)
     difficulty = models.ForeignKey('Difficulty', on_delete=models.CASCADE)
     question = models.TextField()
-    correct_answer = models.CharField(max_length=255)
+    correct_answer = models.TextField()
 
     def __str__(self):
         return self.question
@@ -17,7 +17,7 @@ class Quiz(models.Model):
 
 class IncorrectAnswer(models.Model):
     quiz = models.ForeignKey(Quiz, on_delete=models.CASCADE, related_name='incorrect_answers')
-    incorrect_answer = models.CharField(max_length=255)
+    incorrect_answer = models.TextField()
 
     def __str__(self):
         return self.incorrect_answer
